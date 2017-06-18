@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<tile>
+  <visual branding="name">
+    <binding template="TileSmall">
+      <text></text>
+      <text></text>
+      <text></text>
+      <text></text>
+    </binding>
+
+    <binding template="TileMedium">
+      <text>Medium</text>
+      <text>Medium</text>
+      <text>Medium</text>
+      <text>Medium</text>
+    </binding>
+
+    <binding template="TileWide">
+      <text>Wide</text>
+      <text>Wide</text>
+      <text>Wide</text>
+      <text>Wide</text>
+    </binding>
+
+    
+  </visual>
+</tile>
