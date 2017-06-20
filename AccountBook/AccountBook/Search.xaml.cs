@@ -22,28 +22,63 @@ namespace AccountBook
         Voucher n = new Voucher();
         public Search()
         {
-
+            this.InitializeComponent();
+            if (App.IsHardwareButtonsAPIPresent)
+            {
+                backButton.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                backButton.Visibility = Visibility.Visible;
+            }
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (this.Frame.CanGoBack)
+            {
+                Frame.Navigate(typeof(MainPage), "");
+            }
         }
 
         // 处理菜单栏单击事件，查询记账记录
         private async void ApplicationBarIconButton_Click(object sender, RoutedEventArgs e)
         {
-
+            DateTime? begin = DatePickerBegin.Date.Date;
+            DateTime? end = DatePickerEnd.Date.Date.AddDays(1);
+            if (begin >= end)
+            {
+                var i = new MessageDialog("Please check your date input").ShowAsync();
+            }
+            else
+            {
+                listReport.ItemsSource = await Common.Search(begin, end, keyWords.Text);
+            } 
         }
 
         private void listReport_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            if (e.ClickedItem != null)
+            {
+                n = (AccountBook.Voucher)(e.ClickedItem);
+            }
         }
 
         private async void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
+            data = await App.voucherHelper.Getdata();
 
+            if (n.Money != 0)
+            {
+                App.voucherHelper.Remove(n);
+                App.voucherHelper.SaveToFile();
+                Frame.Navigate(typeof(Search), "");
+                var i = new MessageDialog("Deleted successfully, please search again.").ShowAsync();
+            }
+            else
+            {
+                var i = new MessageDialog("You have not selected a bill.").ShowAsync();
+            }
         }
     }
 }
