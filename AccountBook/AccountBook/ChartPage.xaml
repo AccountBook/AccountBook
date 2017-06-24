@@ -26,8 +26,8 @@
             <PivotItem Header="柱形图">
                 <Grid>
                     <amq:SerialChart x:Name="chart1" CategoryValueMemberPath="TypeName"
-                            AxisForeground="White"
-                            PlotAreaBackground="Black"
+                            AxisForeground="Black"
+                            PlotAreaBackground="White"
                             GridStroke="DarkGray">
                         <amq:SerialChart.Graphs>
                             <amq:ColumnGraph ValueMemberPath="Sum" Brush="#8000FF00" ColumnWidthAllocation="0.4" />
