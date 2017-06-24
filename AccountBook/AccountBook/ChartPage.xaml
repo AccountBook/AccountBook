@@ -26,7 +26,7 @@
             <PivotItem Header="柱形图">
                 <Grid>
                     <amq:SerialChart x:Name="chart1" CategoryValueMemberPath="TypeName"
-                            AxisForeground="White"
+                            AxisForeground="Black"
                             PlotAreaBackground="White"
                             GridStroke="DarkGray">
                         <amq:SerialChart.Graphs>
