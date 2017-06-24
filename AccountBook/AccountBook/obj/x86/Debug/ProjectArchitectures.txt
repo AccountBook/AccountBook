@@ -1,0 +1,2 @@
+C:\Users\asus1\Desktop\14331148_梁乐生_期中project\AccountBook\AccountBook\AccountBook.csproj;x86
+C:\Users\asus1\Desktop\14331148_梁乐生_期中project\AccountBook\QuickCharts\QuickCharts.csproj;x86

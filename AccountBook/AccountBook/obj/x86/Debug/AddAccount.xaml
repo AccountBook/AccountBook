@@ -1,0 +1,80 @@
+﻿<Page
+    x:Class="AccountBook.AddAccount"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AccountBook"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"  VerticalAlignment="Top" Orientation="Horizontal">
+            <Button x:ConnectionId='12' x:Name="backButton" Margin="12"                          Style="{StaticResource  NavigationBackButtonNormalStyle}" VerticalAlignment="Center"/>
+            <TextBlock Text="添加一笔记录" Margin="12 0 0 0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+        </StackPanel>
+        <!--使用Pivot控件来布局-->
+        <Pivot x:ConnectionId='1' x:Name="pivot" Grid.Row="1">
+            <!--收入模式的录用界面-->
+            <PivotItem  Header="收入">
+                <ScrollViewer>
+                    <Grid>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                            <TextBlock HorizontalAlignment="Left" Text="金额"/>
+                            <TextBox x:ConnectionId='7' x:Name="textBox_Income" TextWrapping="Wrap" InputScope="Number" />
+                            <TextBlock HorizontalAlignment="Left" Text="说明"/>
+                            <TextBox x:ConnectionId='8' x:Name="textBox_IncomeDesc"  TextWrapping="Wrap" InputScope="Chat" />
+                            <TextBlock HorizontalAlignment="Left" Text="类别"/>
+                            <ComboBox x:ConnectionId='9' x:Name="listPickerIncome"></ComboBox>
+                            <TextBlock HorizontalAlignment="Left" Text="日期" />
+                            <DatePicker x:ConnectionId='10' x:Name="DatePickerIncome"></DatePicker>
+                            <TextBlock HorizontalAlignment="Left" Text="时间"/>
+                            <TimePicker x:ConnectionId='11' x:Name="TimePickerIncome"></TimePicker>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+            </PivotItem>
+            <!--支出模式的录入界面-->
+            <PivotItem Header="支出">
+                <ScrollViewer>
+                    <Grid>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                            <TextBlock HorizontalAlignment="Left" Text="金额"/>
+                            <TextBox x:ConnectionId='2' x:Name="textBox_Expenses" TextWrapping="Wrap" InputScope="Number" />
+                            <TextBlock HorizontalAlignment="Left" Text="说明"/>
+                            <TextBox x:ConnectionId='3' x:Name="textBox_ExpensesDesc"  TextWrapping="Wrap" InputScope="Chat"/>
+                            <TextBlock HorizontalAlignment="Left" Text="类别"/>
+                            <ComboBox x:ConnectionId='4' x:Name="listPickerExpenses"></ComboBox>
+                            <TextBlock HorizontalAlignment="Left" Text="日期"/>
+                            <DatePicker x:ConnectionId='5' x:Name="DatePickerExpenses"></DatePicker>
+                            <TextBlock HorizontalAlignment="Left" Text="时间"/>
+                            <TimePicker x:ConnectionId='6' x:Name="TimePickerExpenses"></TimePicker>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:ConnectionId='13' Label="新增"                               >
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Images/appbar.add.rest.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton x:ConnectionId='14' Label="完成"                                  >
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Images/appbar.finish.rest.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton x:ConnectionId='15' Label="取消"                                  >
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Images/appbar.cancel.rest.png" />
+                </AppBarButton.Icon>
+            </AppBarButton>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
+
